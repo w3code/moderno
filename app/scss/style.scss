@@ -1,0 +1,17 @@
+html{
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+body{
+    background-color: red;
+    font-size: 12px;
+    margin: 0 auto;
+}
+.box{
+    display: flex;
+    transition: all .3s;
+}
