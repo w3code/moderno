@@ -284,11 +284,13 @@
             display: inline-block;
             margin-left: 3px;
             margin-right: 3px;
-            &.slick-active{
-                button{
+
+            &.slick-active {
+                button {
                     background-color: rgb(139, 195, 74);
                 }
             }
+
             button {
                 border-radius: 50%;
                 background-color: rgb(232, 232, 232);
@@ -306,34 +308,40 @@
 // end produst-slider
 
 // advantages start
-.advantages{
+.advantages {
     background-color: $bg;
     padding: 113px 0;
 }
-.advantages__title{
+
+.advantages__title {
     color: #fff;
 }
-.advantages__inner{
+
+.advantages__inner {
     display: flex;
     justify-content: space-between;
 }
-.advantages__item{
+
+.advantages__item {
     max-width: 370px;
     text-align: center;
     padding: 0px 15px;
-    
-    &:hover{
-        .advantages__item-images{
+
+    &:hover {
+        .advantages__item-images {
             background-color: $green;
-            path{
+
+            path {
                 fill: #fff;
             }
         }
-        .advantages__item-title{
+
+        .advantages__item-title {
             color: $green;
         }
     }
-    &-images{
+
+    &-images {
         width: 113px;
         height: 113px;
         background-color: #fff;
@@ -344,23 +352,26 @@
         margin: 0 auto 30px;
         transition: all .3s;
     }
-    &-title{
+
+    &-title {
         margin-bottom: 25px;
         color: #fff;
         @include f500;
         transition: all .3s;
     }
-    &-text{
+
+    &-text {
         font-size: 15px;
-        
+
     }
 
 }
+
 // end advantages
 
 // start authors section
 
-.author{
+.author {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -368,7 +379,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    &__box{
+
+    &__box {
         max-width: 650px;
         width: 100%;
         min-height: 215px;
@@ -377,17 +389,20 @@
         align-items: center;
         background-color: $green;
     }
-    &__title{
+
+    &__title {
         font-size: 30px;
         line-height: 30px;
         color: #fff;
         margin-right: 45px;
         max-width: 270px;
-        span{
+
+        span {
             @include f700;
         }
     }
-    &__link{
+
+    &__link {
         font-size: 18px;
         line-height: 36px;
         padding: 14px 40px;
@@ -399,35 +414,225 @@
 
 // start tutorial
 
-.tutorial{
+.tutorial {
     padding: 70px 0px 120px;
-    &__inner{
+
+    &__inner {
         display: flex;
         justify-content: space-between;
     }
-    &__item{
+
+    &__item {
         max-width: 370px;
         width: 100%;
     }
 }
-.tutorial__item{
-    &-images{
+
+.tutorial__item {
+    &-images {
         min-height: 270px;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-
     }
-    &-title{
+
+    &-title {
         background-color: #f8f8f8;
         font-size: 24px;
         text-align: center;
         @include f700;
         padding: 30px 10px;
         color: $bg;
-
     }
 }
 
 
 // end tutorial
+
+// start footer
+
+.footer {
+    background-color: $bg;
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        padding: 100px 0px 80px;
+    }
+
+}
+
+.footer__copy {
+    border-top: 1px solid #424d53;
+}
+
+.footer__copy-text {
+    text-align: center;
+    font-size: 15px;
+    color: #919699;
+    padding: 25px 0px 25px;
+
+}
+
+.footer__col {
+    max-width: 270px;
+    width: 100%;
+
+    &-menu {
+        max-width: 220px;
+    }
+
+    &-title {
+        font-size: 22px;
+        font-family: 'Raleway', sans-serif;
+        color: #fff;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 51px;
+            left: 2px;
+            height: 3px;
+            background-color: $green;
+        }
+    }
+
+    &-text {
+        color: #b7c3c8;
+        margin-bottom: 30px;
+    }
+
+    &-info {
+        margin-top: 18px;
+        @include f500;
+        font-size: 14px;
+        color: #fff;
+        padding-left: 30px;
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: '\f041';
+            font-family: 'icomoon';
+            color: $green;
+            font-size: 18px;
+            left: 0;
+        }
+    }
+
+    &-phone {
+        &::before {
+            content: '\f095';
+        }
+    }
+}
+
+.footer__col-list {
+    a {
+        margin-bottom: 13px;
+        color: #b7c3c8;
+        padding-left: 22px;
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: '\f105';
+            color: $green;
+            left: 0;
+            font-size: 18px;
+            font-family: 'icomoon';
+        }
+    }
+
+}
+
+.footer__social-link {
+    margin-bottom: 33px;
+
+    li {
+        display: inline-block;
+
+        &+li {
+            margin-left: 7px;
+        }
+    }
+
+    a {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.icon-facebook {
+    background: url('../images/content/css_sprites.png') -1px -1px;
+}
+
+.icon-twitter {
+    background: url('../images/content/css_sprites.png') -31px -1px;
+}
+
+.icon-youtube {
+    background: url('../images/content/css_sprites.png') -1px -31px;
+}
+
+.icon-pinterest {
+    background: url('../images/content/css_sprites.png') -31px -31px;
+}
+
+.icon-linkedin {
+    background: url('../images/content/css_sprites.png') -61px -1px;
+}
+
+.footer__form-title {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.footer__form {
+    position: relative;
+
+    &-input {
+        border: none;
+        background-color: #2f3c43;
+        display: block;
+        width: 100%;
+        height: 40px;
+        color: #fff;
+        padding: 0px 50px 0px 13px;
+        font-size: 14px;
+        outline: none;
+
+        &::placeholder {
+            color: #697378;
+        }
+    }
+
+    button {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: $green;
+        border: none;
+        width: 43px;
+        height: 40px;
+        cursor: pointer;
+        outline: none;
+
+        &::before {
+            position: absolute;
+            content: '\f124';
+            color: #fff;
+            left: 12px;
+            top: 9px;
+            font-size: 20px;
+            font-family: 'icomoon';
+        }
+    }
+}
+
+// end footer
