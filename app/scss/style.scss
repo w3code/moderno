@@ -313,8 +313,6 @@
 
 .basket__summ {
     padding: 16px 17px 12px;
-    /* border-bottom: 1px solid #e0e0e0;
-    border-top: none; */
     background-color: #fff;
 }
 
@@ -566,7 +564,12 @@
 .products {
     padding: 110px 0px;
     background-color: $grey;
+}
 
+.products__wrapper,
+.product-slider__wrapper {
+    max-width: 1920px;
+    margin: 0 auto;
 }
 
 .products__inner-btn {
@@ -595,9 +598,17 @@
 
 .products__inner-box {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    margin-left: -30px;
     flex-wrap: wrap;
 }
+
+.products .product__item {
+    flex-basis: calc(25% - 30px);
+    margin-left: 30px;
+
+}
+
 
 .product__item {
     max-width: 442px;
@@ -1316,9 +1327,11 @@
 
 .product-page__content {
     .product__item {
-        max-width: 270px;
         background-color: #fff;
         transition: all .5s;
+        flex-basis: calc(33.333% - 30px);
+        margin-left: 30px;
+
 
     }
 
@@ -1348,9 +1361,10 @@
 
 .product-page__items {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-bottom: 30px;
+    margin-left: -30px;
 }
 
 .pagination__list {
@@ -1436,6 +1450,7 @@
 .product__item {
     &.list {
         max-width: 100%;
+        flex-basis: 100%;
 
         .product__item-img {
             width: 240px;
@@ -1508,7 +1523,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16px 0;
+    padding: 16px 16px;
 }
 
 .product-one__images {
@@ -1724,6 +1739,55 @@
     display: flex;
     justify-content: space-between;
     padding: 30px 0px;
+
+    .jq-selectbox {
+        width: 100%;
+    }
+
+    .jq-selectbox__select {
+        width: 100%;
+        height: 25px;
+        padding: 0px 29px 0px 18px;
+        border: 1px solid #d7d7d7;
+        background-color: #f9f9f9;
+        font-family: 'Roboto-Regular', sans-serif;
+        font-size: 15px;
+    }
+
+    .jq-selectbox__dropdown {
+        background-color: #fff;
+        border: 1px solid #d7d7d7;
+        width: 100%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+        top: 23px;
+
+        li {
+            padding: 10px 18px;
+            width: 100%;
+
+            &:hover {
+                background-color: #4f71ce;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .jq-selectbox__trigger {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 34px;
+        height: 100%;
+
+        .jq-selectbox__trigger-arrow::before {
+            position: absolute;
+            top: -3px;
+            right: 12px;
+            content: "\f0dd";
+            font-family: 'icomoon';
+        }
+    }
 
 }
 
@@ -2001,7 +2065,6 @@
 
 .contact__map {
     margin-bottom: 50px;
-    height: 415px;
 
     iframe {
         width: 100%;
@@ -2077,10 +2140,6 @@
         width: 350px;
         margin-bottom: 30px;
 
-        &+input {
-            margin-left: 30px;
-        }
-
         &::placeholder {
             font-size: 15px;
             color: #7a7a7a;
@@ -2089,9 +2148,6 @@
         &:focus {
             outline: none;
         }
-
-
-
     }
 
     textarea {
@@ -2177,7 +2233,6 @@
                 }
             }
         }
-
     }
 
     .tabs .tab+.tab {
@@ -2210,6 +2265,17 @@
 
 .page-box__content {
     padding: 30px 35px 80px;
+
+    button {
+        border: none;
+        background-color: $green;
+        text-align: center;
+        @include f500;
+        color: #fff;
+        padding: 15px 5px;
+        width: 108px;
+        margin-left: 175px;
+    }
 }
 
 .settings__line {
@@ -2218,7 +2284,7 @@
     align-items: center;
 
     label {
-        width: 260px;
+        min-width: 175px;
         color: #444;
     }
 
@@ -2237,30 +2303,57 @@
 
     }
 
-    select {
+    .jq-selectbox {
         max-width: 540px;
         width: 100%;
-        background-color: #f9f9f9;
-        height: 40px;
-        color: #000;
-        border: 1px solid #dddddd;
-        padding: 0 10px;
-        color: #707070;
+    }
 
-        &:focus {
-            outline: none;
+    .jq-selectbox__select {
+        width: 100%;
+        height: 40px;
+        padding: 7px 18px;
+        border: 1px solid #dddddd;
+        background-color: #f9f9f9;
+        font-family: 'Roboto-Regular', sans-serif;
+        font-size: 15px;
+        color: #707070;
+    }
+
+    .jq-selectbox__dropdown {
+        background-color: #fff;
+        border: 1px solid #d7d7d7;
+        width: 100%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+
+        li {
+            padding: 10px 18px;
+            width: 100%;
+
+            &:hover {
+                background-color: #4f71ce;
+                color: #fff;
+                cursor: pointer;
+            }
         }
     }
 
-    button {
-        border: none;
-        background-color: $green;
-        text-align: center;
-        @include f500;
-        color: #fff;
-        padding: 15px 5px;
-        width: 108px;
+    .jq-selectbox__trigger {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 34px;
+        height: 100%;
+
+        .jq-selectbox__trigger-arrow::before {
+            position: absolute;
+            top: 5px;
+            right: 12px;
+            content: "\f0dd";
+            font-family: 'icomoon';
+        }
     }
+
+
 
 }
 
@@ -2415,7 +2508,8 @@
             font-weight: 500;
             color: #707070;
             position: relative;
-            &.active::before{
+
+            &.active::before {
                 color: $green;
             }
 
@@ -2492,7 +2586,303 @@
 
 // end profile page
 
+// start upload page
+
+.upload__inner {
+    background-color: #fff;
+    border: 1px solid #d7d7d7;
+    margin-bottom: 110px;
+    padding-bottom: 50px;
+
+    button {
+        color: #fff;
+        background-color: $green;
+        border: none;
+        padding: 15px 36px;
+        cursor: pointer;
+        margin-left: 175px;
+    }
+}
+
+.upload__inner-title {
+    padding: 16px 35px 18px;
+    font-size: 24px;
+    @include f500;
+    color: $bg;
+    border-bottom: 1px solid #d7d7d7;
+    margin-bottom: 40px;
+
+}
+
+.upload__inner-content {
+    margin-bottom: 30px;
+    padding-left: 45px;
+    padding-right: 50px;
+}
+
+.upload-line {
+    margin-bottom: 25px;
+    display: flex;
 
 
+    label {
+        min-width: 175px;
+        padding-right: 15px;
+        padding-top: 5px;
+        color: #444;
+        @include f500;
+
+        span {
+            color: $green;
+        }
+
+        &::placeholder {
+            color: #707070;
+        }
+    }
+
+    select,
+    input,
+    textarea {
+        width: 100%;
+        display: block;
+        border: 1px solid #d7d7d7;
+        height: 40px;
+        background-color: #f9f9f9;
+        padding: 0px 18px;
+    }
+
+    textarea {
+        resize: none;
+        height: 150px;
+        padding: 8px 18px;
+    }
+
+    .jq-file {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        border: 1px solid #d7d7d7;
+        height: 40px;
+        background-color: #f9f9f9;
+        padding: 7px 8px;
+
+        .jq-file__browse {
+            padding: 5px 10px;
+            line-height: 12px;
+            border: 1px solid #d7d7d7;
+            background-color: #fff;
+            order: -1;
+            margin-right: 14px;
+            font-size: 12px;
+        }
+
+        .jq-file__name {
+            font-size: 12px;
+            line-height: 12px;
+        }
+    }
+
+    .jq-selectbox {
+        width: 100%;
+    }
+
+    .jq-selectbox__select {
+        height: 40px;
+        padding: 7px 18px;
+        border: 1px solid #d7d7d7;
+        background-color: #f9f9f9;
+        font-family: 'Roboto-Regular', sans-serif;
+        font-size: 15px;
+    }
+
+    .jq-selectbox__dropdown {
+        background-color: #fff;
+        border: 1px solid #d7d7d7;
+        width: 100%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+
+        li {
+            padding: 10px 18px;
+            width: 100%;
+
+            &:hover {
+                background-color: #4f71ce;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .jq-selectbox__trigger {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 34px;
+        height: 100%;
+
+        .jq-selectbox__trigger-arrow::before {
+            position: absolute;
+            top: 5px;
+            right: 12px;
+            content: "\f0dd";
+            font-family: 'icomoon';
+        }
+    }
+}
+
+// end upload page
+
+// start withdrawal page
+
+.withdrawals__inner {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 110px;
+}
+
+.withdrawals__col {
+    max-width: 570px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #dedede;
+    height: 100%;
+}
+
+.withdrawals__title {
+    font-size: 24px;
+    @include f500;
+    padding: 18px 32px 24px;
+    border-bottom: 1px solid #dedede;
+    margin-bottom: 30px;
+    color: $bg;
+}
+
+.withdrawals__content {
+    padding-left: 35px;
+    padding-right: 40px;
+    padding-bottom: 50px;
+
+    button {
+        color: #fff;
+        background-color: $green;
+        border: none;
+        padding: 15px 36px;
+        cursor: pointer;
+    }
+}
+
+.withdrawals__form-line {
+    margin-bottom: 25px;
+
+    label {
+        display: block;
+        width: 100%;
+        font-size: 16px;
+        @include f500;
+        margin-bottom: 15px;
+        color: $bg;
+
+        span {
+            color: $green;
+        }
+
+    }
+
+    .jq-selectbox {
+        width: 100%;
+    }
+
+    input,
+    .jq-selectbox__select {
+        width: 100%;
+        height: 40px;
+        padding: 7px 18px;
+        border: 1px solid #d7d7d7;
+        background-color: #f9f9f9;
+        font-family: 'Roboto-Regular', sans-serif;
+        font-size: 15px;
+    }
+
+    .jq-selectbox__dropdown {
+        background-color: #fff;
+        border: 1px solid #d7d7d7;
+        width: 100%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+
+        li {
+            padding: 10px 18px;
+            width: 100%;
+
+            &:hover {
+                background-color: #4f71ce;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .jq-selectbox__trigger {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 34px;
+        height: 100%;
+
+        .jq-selectbox__trigger-arrow::before {
+            position: absolute;
+            top: 5px;
+            right: 12px;
+            content: "\f0dd";
+            font-family: 'icomoon';
+        }
+    }
+}
+
+.withdrawals__content-items {
+    padding-bottom: 35px;
+
+}
+
+.withdrawals__content-item {
+    display: flex;
+    align-items: center;
+    height: 42px;
+    font-size: 13px;
+    color: #444;
+
+    &:nth-child(odd) {
+        background-color: #f9f9f9;
+    }
+}
+
+.withdrawals__content-date {
+    width: 154px;
+    padding-left: 20px;
+    @include f500;
+}
+
+.withdrawals__content-email {
+    width: 180px;
+    @include f500;
+}
+
+.withdrawals__content-price {
+    width: 70px;
+    @include f700;
+
+}
+
+.withdrawals__content-status {
+    width: 88px;
+    @include f700;
+
+    &.paid {
+        color: $green;
+    }
+
+}
+
+// end withdrawal page
 
 @import 'media';
